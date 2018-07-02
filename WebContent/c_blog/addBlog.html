@@ -1,0 +1,33 @@
+<div class="container" ng-Controller="c_blogController">
+  <br><br>
+<div align="center">
+	<div class="card" style="width:500px;height:600px;padding:0px;border:0;box-shadow:10px 10px 5px grey;">
+ 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>Add Blog</b></h4><br>
+    	<p align="center" style="padding:0;"><img class="card-img-top" src="resources/blog.png" alt="Card image" style="width:150px;height:100px;"></p>
+    	<div class="card-body">
+    
+   		<form>
+   			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+        			<span class="input-group-text"><i class="fa fa-edit" style="font-size:20px"></i></span>
+        		</div>
+      			<input type="text" class="form-control" ng-model="blog.blogtitle" placeholder="Enter Blog Title" name="blogtitle">
+			</div>
+		
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text"><i class="fa fa-sticky-note" style="font-size:20px"></i></span>
+      			</div>
+      			<textarea class="form-control" rows="8" name="blogcontent" ng-model="blog.blogcontent" placeholder="Enter Blog Content"></textarea>
+    		</div>
+    		<br>
+    		<div align="center">
+    			<button type="submit" style="width:60%;line-height:80%;padding:10px;" ng-click="addBlog()" class="btn btn-primary">ADD</button>
+  			</div>
+  		</form>
+	
+		</div>
+	</div>
+</div>
+
+</div>

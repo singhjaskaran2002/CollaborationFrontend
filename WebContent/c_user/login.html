@@ -1,0 +1,40 @@
+<div class="container" style="margin:100px 100px;padding:0;" ng-Controller="c_userController">
+
+<div style="float:left;" width="80%">
+	<img style="margin-left:150px;margin-top:50px;width:500px;height:300px;" src="resources/joinme-logo.png">
+</div>
+
+
+<div width="20%" style="float:right;">
+	<div class="card" style="width:300px;height:430px;padding:0px;border:0;box-shadow:10px 10px 10px grey;border-radius:5px;">
+ 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>Sign in</b></h4><br>
+    	<p align="center" style="padding:0;"><img class="card-img-top" src="resources/foto.png" alt="Card image" style="width:130px;height:130px;"></p>
+    	<div class="card-body">
+    
+   		<form>   
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text"><i class="fa fa-user-circle" style="font-size:20px"></i></span>
+      			</div>
+      			<input type="text" style="font-family:Comic Sans MS;text-align:center;" class="form-control" ng-model="User.email" placeholder="Enter Email" name="email">
+    		</div>
+    
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text"><i class="fa fa-key" style="font-size:20px"></i></span>
+      			</div>
+      			<input type="password" style="font-family:Comic Sans MS;text-align:center;" class="form-control" ng-model="User.password" placeholder="Enter Password" name="password">
+    		</div>
+    
+    		<div align="center">
+    			<button type="submit" style="width:40%;" ng-click="login()" class="btn btn-primary">Login</button>
+    			&nbsp;&nbsp;
+    			<a style="width:40%;" href="#/register" class="btn btn-warning">Register</a>
+  			</div>
+  		</form>
+	
+		</div>
+	</div>
+</div>
+
+</div>

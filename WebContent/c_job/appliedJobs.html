@@ -1,0 +1,26 @@
+<div class="container" ng-Controller="c_jobController">
+<h2 align="center" style="margin:20px 0;background-color:ghostwhite;font-family:Monotype Corsiva">My Job Applications</h2><br>
+          
+  <table class="table table-hover">
+    <thead>
+      <tr>
+      	<th>Application ID</th>
+        <th>Job Title</th>
+        <th>Job Description</th>
+        <th>Application Date</th>
+        <th>Reason</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody ng-repeat="job in myjobs">
+      <tr>
+      	<td>{{job.jobappid}}</td>
+      	<td>{{job.jobtitle}}</td>
+      	<td>{{job.jodescription}}</td>
+        <td>{{job.applied_date}}</td>
+        <td>{{job.reason}}</td>
+        <td>{{job.jobappstatus}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

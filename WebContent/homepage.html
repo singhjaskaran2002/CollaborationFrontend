@@ -1,0 +1,70 @@
+<div style="margin-bottom:40px;" ng-Controller="HomeController">
+<!-- carousel element -->
+
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+  <!-- Indicators -->
+  <ul class="carousel-indicators">
+    <li data-target="#demo" data-slide-to="0" class="active"></li>
+    <li data-target="#demo" data-slide-to="1"></li>
+    <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
+  </ul>
+  
+  <!-- The slideshow -->
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img style="width:100%;height:500px;" src="resources/car1.jpg" alt="jobs">
+    </div>
+    
+    <div class="carousel-item">
+      <img style="width:100%;height:500px;" src="resources/car2.png" alt="blogs">
+    </div>
+    
+    <div class="carousel-item">
+      <img style="width:100%;height:500px;" src="resources/car3.jpg" alt="discussions">
+    </div>
+    
+    <div class="carousel-item">
+      <img style="width:100%;height:500px;" src="resources/car4.jpg" alt="discussions">
+    </div>
+  </div>
+  
+</div>
+
+<br><br>
+
+<!-- cards in front page -->
+<div>
+
+<div style="width:45%;float:left;height:500px;margin-left:50px;" class="container">
+  <div class="card img-fluid" style="width:600px">
+    <img class="card-img-top" src="resources/job.jpg" alt="Card image" style="width:100%;height:500px;">
+    <div class="card-img-overlay">
+      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:10px;" class="card-title">Jobs Opened</h2>
+      <hr>
+      	<div ng-repeat="job in homejobs">
+      	 	<a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/jobs">* {{job.jobtitle}}</a>
+      	 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualification: {{job.jobqualification}}</p>
+      	</div>
+    </div>
+  </div>
+</div>
+
+<div style="width:45%;float:right;height:500px;margin-right:50px;padding:0;" class="container">
+  <div class="card img-fluid" style="width:600px">
+    <img class="card-img-top" src="resources/blog.jpg" alt="Card image" style="width:100%;height:500px;">
+    <div class="card-img-overlay">
+      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:10px;" class="card-title">Top Blogs</h2>
+      <hr>
+      <div ng-repeat="blog in homeblogs">
+      	 <a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/allBlog">* {{blog.blogtitle}}</a>
+      	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author: {{blog.user_created}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>

@@ -1,0 +1,60 @@
+<div class="container" ng-Controller="c_userController">
+<br><br>
+<div align="center">
+	<div class="card" style="width:400px;height:630px;padding:0px;border:1px solid black;">
+ 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>Register</b></h4><br>
+    	<p align="center" style="padding:0;"><img class="card-img-top" src="resources/joinme-logo.png" alt="Card image" style="width:150px;height:100px;"></p>
+    	<div class="card-body">
+    
+   		<form>
+   			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+        			<span class="input-group-text"><i class="fa fa-user-circle" style="font-size:20px"></i></span>
+        		</div>
+      			<input type="text" style="text-align:center;" name="username" ng-model="User.username"  placeholder="Enter User Name Here" class="form-control" required>
+			</div>
+			
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+        			<span class="input-group-text"><i class="fa fa-credit-card" style="font-size:20px"></i></span>
+      			</div>
+      			<input type="text" style="text-align:center;" name="loginname" ng-model="User.loginname" placeholder="Enter Login Name Here" class="form-control" required>					
+			</div>
+   		   
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        			<span class="input-group-text"><i class="fa fa-paper-plane" style="font-size:20px"></i></span>
+        		</div>
+      			<input type="text" style="text-align:center;" class="form-control" ng-model="User.email" placeholder="Enter Email" name="email">
+    		</div>
+    
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text"><i class="fa fa-key" style="font-size:20px"></i></span>
+      			</div>
+      			<input type="text" style="text-align:center;" class="form-control" ng-model="User.password" placeholder="Enter Password" name="password">
+    		</div>
+    		
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text"><i class="fa fa-map" style="font-size:20px"></i></span>
+      			</div>
+      			<textarea name="address" style="text-align:center;" ng-model="User.address" placeholder="Enter Address Here" rows="2" class="form-control"></textarea>
+    		</div>
+    		
+    		<div class="input-group mb-3">
+      			<div class="input-group-prepend">
+        		<span class="input-group-text">&nbsp;<i class="fa fa-volume-control-phone" style="font-size:20px"></i></span>
+      			</div>
+      			<input type="text" style="text-align:center;" name="mobile" ng-model="User.mobile" placeholder="Enter Mobile Number Here" class="form-control" required>
+    		</div>
+    
+    		<div align="center">
+    			<button type="button" style="width:60%;line-height:80%;padding:10px;" ng-click="register()" class="btn btn-lg btn-primary">Submit</button>	
+  			</div>
+  		</form>
+	
+		</div>
+	</div>
+</div>
+</div>
