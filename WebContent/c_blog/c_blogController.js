@@ -1,7 +1,10 @@
 myApp.controller("c_blogController", function($scope, $http, $rootScope, $location, $route)
 {
 	$scope.blog = {blogid:'', blogtitle:'', blogcontent:'', user_created:'', blogremarks:'', blogstatus:'', bloglikes:'', blogcreatedDate:''}
+	$scope.blogComment = {blogcommentid:'', blogid:'', commentedDate:'', loginname:'', comments:''}
+	
 	$scope.allBlogData;
+	$scope.commentedblogid;
 	
 	$scope.addBlog = function()
 	{
@@ -67,9 +70,39 @@ myApp.controller("c_blogController", function($scope, $http, $rootScope, $locati
 		.then(function(response)
 				{
 					$route.reload();
-					$scope.isBlogDisabled = true;
-					console.log($scope.isBlogDisabled);
+				});
+	}
+	
+	$scope.commentedblog = function(blogid)
+	{
+		$http.post('http://localhost:8086/collaborationRestService/blog/get/'+blogid)
+		.then(function(response)
+				{
+					$rootScope.commentedblogid = blogid;
+					$location.path("/blogcomment");
 				});
 		
 	}
+	
+	$scope.commentblog = function()
+	{
+		$http.post('http://localhost:8086/collaborationRestService/blog/comment', $scope.blogComment)
+		.then(function(response)
+				{
+					$route.reload();
+					console.log("commented succesfully");
+				});
+	}
+	
+	function commentlist()
+	{
+		$http.post('http://localhost:8086/collaborationRestService/blog/listComments/'+$rootScope.commentedblogid)
+		.then(function(response)
+				{
+					console.log("loading comments");
+					$rootScope.commentedData = response.data;
+				});
+	}
+	commentlist();
+	
 });

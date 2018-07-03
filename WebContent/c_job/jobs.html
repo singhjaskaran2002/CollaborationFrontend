@@ -1,23 +1,26 @@
-<div class="container" ng-Controller="c_jobController">
+<br><div style="border:1px solid black;padding:0;background-color:white;" class="container" ng-Controller="c_jobController">
 
-<h2 align="center" style="margin:20px 0;background-color:ghostwhite;font-family:Monotype Corsiva">Featured Jobs</h2><br>
-<p style="font-weight:bold;font-size:20px;text-decoration:underline;" ng-hide="CurrentUser == undefined">Current User: {{CurrentUser.username}}</p><br>
-
-<div ng-repeat="job in jobs">
-  
-  <button type="button" style="width:200px;border:0;" class="btn btn-default" data-toggle="collapse" data-target="#{{job.jobid}}">{{job.jobtitle}}</button>
-  <span class="badge badge-primary">{{job.job_posted_date}}</span>
-  <span class="badge badge-success">{{job.jobstatus}}</span>
-  <br>
-  <div id="{{job.jobid}}" class="collapse"><br>
-    <textarea class="form-control" readonly rows="5" name="jobdescription" ng-model="job.jobdescription" placeholder="{{job.jobdescription}}"></textarea>
-    <br>
-      	<button type="button" class="btn btn-primary" ng-click="applyjobClicked(job.jobid)" ng-hide="CurrentUser == undefined">Apply</button>
-  		<button type="button" class="btn btn-danger" ng-click="deletejob(job.jobid)" ng-show="CurrentUser.role=='ROLE_ADMIN'">Delete</button>
+<p align="center"><h1 style="background-color:cyan;padding:15px;text-align:center;margin-top:-16px;">Featured Jobs</h1></p>
+<div align="center" ng-repeat="job in jobs">
+  <div class="card" style="width:80%;text-align:left;border:1px solid black;">
+  <div class="card-header">
+    <div style="font-size:20px;font-weight:bold;float:left;">{{job.jobtitle}}</div>
+    <div style="font-size:15px;float:right;"><b>Date: </b>{{job.job_posted_date}}</div>
   </div>
-  
-  <br><hr>
-  
-</div>			<!-- end of ng-repeat -->
+    
+    <div class="card-body">
+    	<p><b>Job Description: </b>{{job.jobdescription}}</p>
+    	<p><b>Salary: </b>{{job.jobsalary}}</p>
+    	<p style="text-align:bottom;"><b>Vacancies: </b>{{job.no_of_openings}}</p>
+    </div> 
+    <div class="card-footer">
+    	
+        <button type="button" class="btn btn-primary" ng-click="applyjobClicked(job.jobid)" ng-hide="CurrentUser == undefined">Apply</button>
+  		<button type="button" class="btn btn-danger" ng-click="deletejob(job.jobid)" ng-show="CurrentUser.role=='ROLE_ADMIN'">Delete</button>
+        
+    </div>
+ 	</div>
+  <br><br>
+  </div>
 
 </div>

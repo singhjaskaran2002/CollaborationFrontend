@@ -8,8 +8,6 @@ myApp.controller("c_userController", function($scope, $http, $rootScope, $locati
 	$scope.register = function()
 	{
 		console.log("register page");
-		console.log("email" + $scope.User.email);
-		console.log("password" + $scope.User.password);
 		
 		$http.post('http://localhost:8086/collaborationRestService/user/register', $scope.User)
 		.then(function(response)

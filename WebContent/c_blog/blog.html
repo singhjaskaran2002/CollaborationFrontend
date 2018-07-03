@@ -1,26 +1,27 @@
-<div class="container" ng-Controller="c_blogController">
+<br><div style="border:1px solid black;padding:0;background-color:white;" class="container" ng-Controller="c_blogController">
 
-<h2 align="center" style="margin:20px 0;background-color:ghostwhite;font-family:Monotype Corsiva">All Blogs</h2><br>
-<p style="font-weight:bold;font-size:20px;text-decoration:underline;" ng-hide="CurrentUser == undefined">Current User: {{CurrentUser.username}}</p><br>
+<p align="center"><h1 style="background-color:cyan;padding:15px;text-align:center;margin-top:-16px;">All Blogs</h1></p>
+<div align="center" ng-repeat="blog in allBlogData">
+  <div class="card" style="width:80%;text-align:left;border:1px solid black;">
+  <div class="card-header">
+    <div style="font-size:20px;font-weight:bold;float:left;">{{blog.blogtitle}}</div>
+    <div style="font-size:15px;float:right;"><b>Author:</b> {{blog.user_created}}</div>
+  </div>
+    
+    <div class="card-body">{{blog.blogcontent}}</div> 
+    <div class="card-footer">
+    	<button class="btn btn-primary" ng-click="approveblog(blog.blogid)" ng-show="blog.blogstatus=='N' && CurrentUser.role=='ROLE_ADMIN'">Approve</button>
+        <button class="btn btn-info" ng-click="rejectblog(blog.blogid)" ng-show="blog.blogstatus=='N' && CurrentUser.role=='ROLE_ADMIN'">Reject</button>
+        <label style="font-weight:bold;" ng-show="blog.blogstatus=='A'"><span class="badge badge-pill badge-info">Approved</span></label>
+  		<label style="font-weight:bold;" ng-show="blog.blogstatus=='R'"><span class="badge badge-pill badge-danger">Rejected</span></label>
+  		
+        <button style="float:right;" class="btn btn-danger" ng-show="CurrentUser.loginname == blog.user_created" ng-click="deleteblog(blog.blogid)">Delete</button>
+        <button style="float:right;" class="btn btn-success" ng-hide="CurrentUser == undefined" ng-click="commentedblog(blog.blogid)">Comment</button>
+        <button style="float:right;" class="btn btn-warning" ng-hide="CurrentUser == undefined" ng-click="incLike(blog.blogid)">Like <span class="badge badge-light">{{blog.bloglikes}}</span></button>
+        
+    </div>
+ 	</div>
+  <br><br>
+  </div>
 
-<div ng-repeat="blog in allBlogData">
-  
-  <button type="button" style="width:200px;border:0;" class="btn btn-default" data-toggle="collapse" data-target="#{{blog.blogid}}">{{blog.blogtitle}}</button>
-  <button type="button" style="border:0;" class="btn btn-warning" ng-click="incLike(blog.blogid)">{{blog.bloglikes}} Likes</button>
-  <label style="font-weight:bold;" ng-show="blog.blogstatus=='A' && CurrentUser.role == 'ROLE_ADMIN'">Approved</label>
-  <label style="font-weight:bold;" ng-show="blog.blogstatus=='R' && CurrentUser.role == 'ROLE_ADMIN'">Rejected</label>
-  <label style="font-weight:bold;" ng-show="blog.blogstatus=='N' && CurrentUser.role == 'ROLE_ADMIN'">Approval Pending</label>
-  <br>
-  <div id="{{blog.blogid}}" class="collapse"><br>
-    <textarea class="form-control" readonly rows="5" name="blogcontent" ng-model="blog.blogcontent" placeholder="{{blog.blogcontent}}"></textarea>
-    <br>
-      	<button type="button" class="btn btn-primary" ng-click="approveblog(blog.blogid)" ng-show="blog.blogstatus=='N' && CurrentUser.role=='ROLE_ADMIN'">Approve</button>
-  		<button type="button" class="btn btn-primary" ng-click="rejectblog(blog.blogid)" ng-show="blog.blogstatus=='N' && CurrentUser.role=='ROLE_ADMIN'">Reject</button>
-  		<button type="button" class="btn btn-danger" ng-show="CurrentUser.loginname == blog.user_created" ng-click="deleteblog(blog.blogid)">Delete</button>
-  		<button type="button" class="btn btn-primary">Comments</button>
-  	</div>
-  
-  <br><hr>
-  
-</div>
 </div>

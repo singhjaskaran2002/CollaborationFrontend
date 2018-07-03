@@ -5,8 +5,6 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 	$scope.JobApplication = {jobappid:' ', email:' ', jobid:' ', jobappstatus:' ', applied_date:' ', reason:' ', jobtitle:' ', jobdescription:' '}
 	
 	$scope.joblist;
-	$scope.jobapplist;
-	$scope.pJob;
 	$scope.jobdata;
 	
 	function jobList()
@@ -47,22 +45,21 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 	{
 		console.log("Applied jobs displaying");
 		$http.get('http://localhost:8086/collaborationRestService/user/appliedJobs')
-		.then(function(reponse)
+		.then(function(response)
 				{
-					$scope.jobapplist = response.data;
-					$rootScope.myjobs = $scope.jobapplist;
+					$rootScope.myjobs = response.data;
 				});
 	}
+	jobApplicationList();
 	
 	$scope.applyjobClicked = function(jobid)
 	{
 		$http.get('http://localhost:8086/collaborationRestService/job/get/'+jobid)
 		.then(function(response)
 				{
-					$scope.pJob = response.data;
-					$rootScope.jobdata = $scope.pJob;
+					$rootScope.jobidforapplication = jobid;
+					$rootScope.jobdata = response.data;
 					$location.path("/applyjob");
-					console.log($rootScope.jobdata);
 				});
 	}
 	
@@ -73,6 +70,11 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 				{
 					alert('Registered for Job Successfully')
 					$location.path("/appliedjobs");
+				},
+				function(response)
+				{
+					alert('Already Applied for this job')
+					$location.path("/showjobs");
 				});
 	}
 	

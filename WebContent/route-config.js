@@ -27,7 +27,7 @@ myApp.config(
 					.when("/showForum",		{templateUrl : "c_forum/myForum.html"})
 					.when("/allForum",		{templateUrl : "c_forum/Forum.html"})
 				
-					.when("/BlogComment",	{templateUrl : "c_blogcomment/BlogComment.html"})
+					.when("/blogcomment",	{templateUrl : "c_blog/blogcomment.html"})
 				
 					.when("/showfriends",		{templateUrl : "c_friend/friends.html"})
 					.when("/friends",			{templateUrl : "c_friend/friends.html"})

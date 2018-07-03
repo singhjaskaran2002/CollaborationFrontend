@@ -1,40 +1,50 @@
 <div class="container" ng-Controller="c_jobController">
-<br><br>
-<h1 class="well"><center><font face="Monotype Corsiva">Job Application Form</font></center></h1><hr style="height:2px;background-color:black;"><br><br>
-
-
-				
-	<form>
-		
-			<div class="row">
+<br>
+	<div align="center">
+	<div class="card" style="width:600px;min-height:630px;padding:0px;border:1px solid black;">
+ 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>Job Application Form</b></h4><br>
+    	<p align="center" style="padding:0;"><img class="card-img-top" src="resources/joinme-logo.png" alt="Card image" style="width:150px;height:100px;"></p>
+    	<div style="text-align:left;" class="card-body">
+    		<form>
+   			<div class="row">
 				<div class="col-sm-6 form-group">
-					<label>Job ID</label>
-						<input type="text" name="jobtitle" ng-model="JobApplication.jobid" value="101" readonly class="form-control" required>
+					<b>Job ID:</b>
+					<label class="form-control">{{jobdata.jobid}}</label>
 				</div>
 				
 				<div class="col-sm-6 form-group">
-					<label>Job Title</label>
-						<input type="text" name="jobtitle" value="{{jobdata.jobtitle}}" ng-model="JobApplication.jobtitle" readonly class="form-control" required>
+					<b>Job Title:</b>
+					<label class="form-control">{{jobdata.jobtitle}}</label>
 				</div>		
 			</div>					
 			
 			<div class="form-group">
-					<label>Job Description</label>
-						<textarea name="jobdesciption" value="{{jobdata.jobdescription}}" ng-model="JobApplication.jobdescription" readonly rows="3" class="form-control" required></textarea>
+					<b>Job Description:</b>
+					<label class="form-control">{{jobdata.jobdescription}}</label>
 			</div>
 			
 			<div class="form-group">
-					<label>Email</label>
-						<input type="text" name="email" value="{{CurrentUser.email}}" ng-model="JobApplication.email" readonly class="form-control" required>
+					<b>Email:</b>
+					<label class="form-control">{{CurrentUser.email}}</label>
 			</div>
-						
-			<div class="form-group">
-				<label>Reason</label>
+			</form>
+			
+			<form>			
+				<div class="form-group">
+					<b>Reason for Application:</b>
 					<textarea name="reason" placeholder="Enter Reason here" ng-model="JobApplication.reason" rows="3" class="form-control" required></textarea>
-			</div>		
+				</div>		
+				
+				<div style="text-align:center;" class="form-group">
+					<button type="button" ng-click="applyjob()" class="btn btn-lg btn-primary">Apply</button>		
+				</div>			
+			</form> 
 	
-
-			<button type="button" ng-click="applyjob()" class="btn btn-lg btn-primary">Apply</button>					
-		
-	</form> 
+		</div>
+	</div>
+</div>
+	
+	
+	
+	
 	</div>

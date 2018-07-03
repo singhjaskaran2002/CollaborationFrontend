@@ -49,15 +49,15 @@
   		</li>
   		
   		
-  		<!-- Forum Dropdown -->
-  		<li class="nav-item dropdown">
+  		
+  		<!-- <li class="nav-item dropdown">
     	 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"> Forum </a>
     		<div class="dropdown-menu">
         		<a class="dropdown-item" href="#/myForum" ng-hide="CurrentUser==undefined">My Forum</a>
         		<a class="dropdown-item" href="#/addForum" ng-hide="CurrentUser==undefined">Add Forum</a>
         		<a class="dropdown-item" href="#/allForum">Show Forums</a>
      		</div>
-  		</li>
+  		</li> -->
   		
   		<li class="nav-item dropdown" ng-hide="CurrentUser==undefined">
     	 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"> Friends </a>
@@ -68,10 +68,10 @@
      		</div>
   		</li>
   		
-  		<li class="nav-item dropdown">
+  		<li class="nav-item dropdown" ng-hide="CurrentUser==undefined">
     	 <a class="nav-link dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown"> Jobs </a>
     		<div class="dropdown-menu">
-        		<a class="dropdown-item" href="#/jobapplications" ng-hide="CurrentUser==undefined">Job Applied</a>
+        		<a class="dropdown-item" href="#/appliedjobs" ng-hide="CurrentUser==undefined">Job Applied</a>
         		<a class="dropdown-item" href="#/jobs">Jobs Opened</a>
         		<a class="dropdown-item" ng-show="CurrentUser.role == 'ROLE_ADMIN'" href="#/postjob">Post Job</a>
      		</div>
