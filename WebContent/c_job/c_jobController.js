@@ -1,4 +1,4 @@
-myApp.controller("c_jobController", function($location, $scope, $rootScope, $http)
+myApp.controller("c_jobController", function($location, $scope, $rootScope, $http, $route)
 {
 	$scope.Job = {jobid:' ', jobtitle:' ', jobdescription:' ', jobsalary:' ', jobqualification:' ', jobstatus:' ', no_of_openings:' ', job_posted_date:' '}
 	
@@ -25,8 +25,8 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 		$http.delete('http://localhost:8086/collaborationRestService/job/delete/'+jobid)
 		.then(function(response)
 				{
-					alert("job delete succesfully");
-					$location.path("/showjobs");
+					console.log("job delete succesfully");
+					$route.reload();
 				});				
 	}
 	
@@ -52,6 +52,17 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 	}
 	jobApplicationList();
 	
+	function jobApplications()
+	{
+		console.log("Applied jobs displaying");
+		$http.get('http://localhost:8086/collaborationRestService/job/appliedJobs')
+		.then(function(response)
+				{
+					$rootScope.jobapplications = response.data;
+				});
+	}
+	jobApplications();
+	
 	$scope.applyjobClicked = function(jobid)
 	{
 		$http.get('http://localhost:8086/collaborationRestService/job/get/'+jobid)
@@ -76,6 +87,36 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 					alert('Already Applied for this job')
 					$location.path("/showjobs");
 				});
+	}
+	
+	$scope.approveApplication = function(jobappid)
+	{
+		$http.get('http://localhost:8086/collaborationRestService/job/approveApplication/'+jobappid)
+		.then(function(response)
+				{
+					console.log("Approved");
+					$route.reload();
+				});
+	}
+	
+	$scope.rejectApplication = function(jobappid)
+	{
+		$http.get('http://localhost:8086/collaborationRestService/job/rejectApplication/'+jobappid)
+		.then(function(response)
+				{
+					console.log("Rejected");
+					$route.reload();
+				});
+	}
+	
+	$scope.updatejob = function(jobid)
+	{
+		$http.put('http://localhost:8086/collaborationRestService/job/update/'+jobid)
+		.then(function(response)
+				{
+					console.log("job closed succesfully");
+					$route.reload();
+				});	
 	}
 	
 });

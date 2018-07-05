@@ -2,7 +2,7 @@
 <br>
 <div style="float:center;">
 	<div class="card" style="width:1500px;margin:0;min-height:450px;padding:0px;border:1px solid black;">
- 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>My Job Applications</b></h4>
+ 	 <h4 style="background-color:powderblue;padding:10px;" align="center" class="card-title"><b>All Job Applications</b></h4>
  	 <p align="center" style="padding:0;"><img class="card-img-top" src="resources/joinme-logo.png" alt="Card image" style="width:150px;height:100px;"></p>
     	<div class="card-body">
     		  <table class="table table-bordered">
@@ -17,7 +17,7 @@
         <th style="width:50px;">Status</th>
       </tr>
     </thead>
-    <tbody ng-repeat="job in myjobs" ng-show="CurrentUser.email == job.email">
+    <tbody ng-repeat="job in jobapplications">
       <tr style="text-align:center;">
       	<td>{{job.jobid}}</td>
       	<td>{{job.email}}</td>
@@ -25,7 +25,8 @@
       	<td>{{job.jobdescription}}</td>
         <td>{{job.applied_date}}</td>
         <td>{{job.reason}}</td>
-        <td ng-show="job.jobappstatus == 'N'">Pending</td>
+        <td ng-show="job.jobappstatus == 'N'">Pending&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-info" ng-show="CurrentUser.role == 'ROLE_ADMIN'" ng-click="approveApplication(job.jobappid)">A</button>
+        	<button class="btn btn-warning" ng-show="CurrentUser.role == 'ROLE_ADMIN'" ng-click="rejectApplication(job.jobappid)">R</button></td>
         <td ng-show="job.jobappstatus == 'A'">Approved</td>
         <td ng-show="job.jobappstatus == 'R'">Rejected</td>
       </tr>

@@ -16,8 +16,8 @@
   		<label style="font-weight:bold;" ng-show="blog.blogstatus=='R'"><span class="badge badge-pill badge-danger">Rejected</span></label>
   		
         <button style="float:right;" class="btn btn-danger" ng-show="CurrentUser.loginname == blog.user_created" ng-click="deleteblog(blog.blogid)">Delete</button>
-        <button style="float:right;" class="btn btn-success" ng-hide="CurrentUser == undefined" ng-click="commentedblog(blog.blogid)">Comment</button>
-        <button style="float:right;" class="btn btn-warning" ng-hide="CurrentUser == undefined" ng-click="incLike(blog.blogid)">Like <span class="badge badge-light">{{blog.bloglikes}}</span></button>
+        <button style="float:right;" ng-hide="blog.blogstatus == 'R'" class="btn btn-info" ng-click="commentedblog(blog.blogid)">Comment</button>
+        <button style="float:right;" class="btn btn-warning" ng-hide="CurrentUser == undefined || blog.blogstatus == 'R'" ng-click="incLike(blog.blogid)">Like <span class="badge badge-light">{{blog.bloglikes}}</span></button>
         
     </div>
  	</div>

@@ -4,6 +4,7 @@ myApp.controller("c_blogController", function($scope, $http, $rootScope, $locati
 	$scope.blogComment = {blogcommentid:'', blogid:'', commentedDate:'', loginname:'', comments:''}
 	
 	$scope.allBlogData;
+	$scope.commentedData;
 	$scope.commentedblogid;
 	
 	$scope.addBlog = function()
@@ -79,6 +80,7 @@ myApp.controller("c_blogController", function($scope, $http, $rootScope, $locati
 		.then(function(response)
 				{
 					$rootScope.commentedblogid = blogid;
+					$rootScope.commentedBlogData = response.data;
 					$location.path("/blogcomment");
 				});
 		
@@ -94,13 +96,23 @@ myApp.controller("c_blogController", function($scope, $http, $rootScope, $locati
 				});
 	}
 	
+	$scope.removeBlogComment = function(blogcommentid)
+	{
+		console.log("deleting blog comment");
+		$http.post('http://localhost:8086/collaborationRestService/blog/comment/delete/'+blogcommentid)
+		.then(function(response)
+				{
+					$route.reload();
+				});
+	}
+	
 	function commentlist()
 	{
 		$http.post('http://localhost:8086/collaborationRestService/blog/listComments/'+$rootScope.commentedblogid)
 		.then(function(response)
 				{
 					console.log("loading comments");
-					$rootScope.commentedData = response.data;
+					$scope.commentedData = response.data;
 				});
 	}
 	commentlist();

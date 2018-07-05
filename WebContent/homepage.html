@@ -31,35 +31,31 @@
   </div>
   
 </div>
-
-<br><br>
-
+<br>
 <!-- cards in front page -->
-<div>
+<div style="width:100%;padding:0;margin-top:-20px;">
 
-<div style="width:45%;float:left;height:500px;margin-left:50px;" class="container">
-  <div class="card img-fluid" style="width:600px">
-    <img class="card-img-top" src="resources/job.jpg" alt="Card image" style="width:100%;height:500px;">
-    <div class="card-img-overlay">
-      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:10px;" class="card-title">Jobs Opened</h2>
-      <hr>
-      	<div ng-repeat="job in homejobs">
-      	 	<a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/jobs">* {{job.jobtitle}}</a>
-      	 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualification: {{job.jobqualification}}</p>
+<div style="width:50%;float:left;height:500px;" class="container">
+  <div class="card img-fluid" style="width:750px;padding:0;">
+    <img class="card-img-top" src="resources/back.jpg" alt="Card image" style="width:100%;height:500px;">
+    <div class="card-img-overlay" class="card img-fluid" style="padding:0;">
+      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:20px;" class="card-title">Jobs Opened</h2>
+      	<div ng-repeat="job in homejobs" ng-show="job.jobstatus == 'N'" style="padding:0 25px;">
+      	 	<a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/jobs">*&nbsp;&nbsp;&nbsp;&nbsp;{{job.jobtitle}}</a>
+      	 	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Qualification: {{job.jobqualification}}</p><hr>
       	</div>
     </div>
   </div>
 </div>
 
-<div style="width:45%;float:right;height:500px;margin-right:50px;padding:0;" class="container">
-  <div class="card img-fluid" style="width:600px">
-    <img class="card-img-top" src="resources/blog.jpg" alt="Card image" style="width:100%;height:500px;">
-    <div class="card-img-overlay">
-      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:10px;" class="card-title">Top Blogs</h2>
-      <hr>
-      <div ng-repeat="blog in homeblogs">
-      	 <a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/allBlog">* {{blog.blogtitle}}</a>
-      	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author: {{blog.user_created}}</p>
+<div style="width:50%;float:right;height:500px;padding:0;" class="container">
+  <div class="card img-fluid" style="width:750px">
+    <img class="card-img-top" src="resources/back.jpg" alt="Card image" style="width:100%;height:500px;">
+    <div class="card-img-overlay" style="padding:0;">
+      <h2 style="text-align:center;font-weight:bold;background-color:powderblue;padding:20px;" class="card-title">Top Blogs</h2>
+      <div ng-repeat="blog in homeblogs" ng-show="blog.blogstatus == 'A'" style="padding:0 25px;">
+      	 <a style="color:indigo;text-decoration:none;font-size:20px;font-weight:bold;" href="#/allBlog">*&nbsp;&nbsp;&nbsp;&nbsp;{{blog.blogtitle}}</a>
+      	 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author: {{blog.user_created}}</p><hr>
       </div>
     </div>
   </div>
@@ -67,4 +63,156 @@
 
 </div>
 
+
+<div style="margin-top:510px;margin-bottom:0;">
+<style>
+.header-font {
+  font-family: "Josefin Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color: #fd1506;
+}
+.fa-facebook{
+    color:#3b5998;
+}
+.fa-linkedin{
+    color:#0077B5;
+}
+.fa-twitter{
+    color:#4099FF;
+}
+.fa-google{
+    color:#d34836;
+}
+.bg-primary {
+ background-color: #000 !important;
+}
+
+.bg-circle
+{
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  padding: 14px 4px;
+  color: #ececec;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.bg-circle-outline
+{
+  width: 50px;
+  height: 50px;
+  color:smoke;
+  padding: 8px 2px;
+  border: 2px solid;
+  border-color: smoke;
+  border-radius: 50%;
+}
+
+
+.bg-circle a, a:hover, .media a:focus
+{
+  text-decoration: none !important;
+  outline: none;
+  color: #ececec;
+}
+.bg-circle-outline a, a:hover, .media a:focus
+{
+  text-decoration: none !important;
+  outline: none;
+  color: #ececec;
+}
+.footer {
+	background: purple;
+	height: auto;
+	padding-bottom: 30px;
+	position: relative;
+	width: 100%;
+	border-bottom: 1px solid #CCCCCC;
+	border-top: 1px solid #DDDDDD;
+}
+.footer p {
+	margin: 0;
+}
+.footer img {
+	max-width: 100%;
+}
+.footer h3 {
+	border-bottom: 1px solid #BAC1C8;
+	color: #54697E;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 27px;
+	padding: 40px 0 10px;
+	text-transform: uppercase;
+}
+.footer ul {
+	font-size: 13px;
+	list-style-type: none;
+	margin-left: 0;
+	padding-left: 0;
+	margin-top: 15px;
+	color: #7F8C8D;
+}
+.footer ul li a {
+	padding: 0 0 5px 0;
+	display: block;
+}
+.footer a {
+	color: #78828D
+}
+</style>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container">
+	<div class="row">
+	
+	</div>
+</div>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<footer>
+     <div class="container-fluid bg-primary py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+            <div class="row py-0">
+          <div class="col-sm-1 hidden-md-down">
+              <a class="bg-circle bg-info" href="#">
+                <i class="fa fa-2x fa-fw fa-address-card" aria-hidden="true "></i>
+              </a>
+            </div>
+            <div class="col-sm-11">
+                <div><h4 style="color:white;">&nbsp;&nbsp;&nbsp;Contact</h4>
+                    <p style="color:white;">&nbsp;&nbsp;&nbsp;&nbsp;Join.Me</p>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="col-md-5">
+          <div class="d-inline-block">
+            <div class="bg-circle-outline d-inline-block" style="background-color:#3b5998">
+              <a href="https://www.facebook.com/"><i class="fa fa-2x fa-fw fa-facebook text-white"></i>
+		</a>
+            </div>
+            <div class="bg-circle-outline d-inline-block" style="background-color:#4099FF">
+              <a href="https://twitter.com/">
+                <i class="fa fa-2x fa-fw fa-twitter text-white"></i></a>
+            </div>
+
+            <div class="bg-circle-outline d-inline-block" style="background-color:#0077B5">
+              <a href="https://www.linkedin.com/company/">
+                <i class="fa fa-2x fa-fw fa-linkedin text-white"></i></a>
+            </div>
+            <div class="bg-circle-outline d-inline-block" style="background-color:#d34836">
+              <a href="https://www.google.com/">
+                <i class="fa fa-2x fa-fw fa-google text-white"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</footer>
+    <!--/.footer-->
+<p class="text-center" style="color:white;"> Copyright ©Join.Me 2018. All right reserved. </p>
+    <!--/.footer-bottom--> 
+</div>
 </div>

@@ -39,6 +39,12 @@ myApp.controller("c_userController", function($scope, $http, $rootScope, $locati
 				});
 	}
 	
+	$scope.send = function()
+	{
+		console.log("send function");
+		$location.path("/home");
+	}
+	
 	$scope.logout = function()
 	{
 		console.log("Logging Out");
@@ -46,6 +52,5 @@ myApp.controller("c_userController", function($scope, $http, $rootScope, $locati
 		$location.path("/login");
 		$rootScope.CurrentUser = undefined;
 		$window.location.reload();
-		
 	}
 });
