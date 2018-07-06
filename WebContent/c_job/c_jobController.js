@@ -27,6 +27,10 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 				{
 					console.log("job delete succesfully");
 					$route.reload();
+				},
+				function(response)
+				{
+					alert("Someone applied for this job")
 				});				
 	}
 	
@@ -48,6 +52,10 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 		.then(function(response)
 				{
 					$rootScope.myjobs = response.data;
+				},
+				function(response)
+				{
+					$rootScope.ismyjobApplications = undefined;
 				});
 	}
 	jobApplicationList();
@@ -59,6 +67,10 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 		.then(function(response)
 				{
 					$rootScope.jobapplications = response.data;
+				},
+				function(response)
+				{
+					$rootScope.isalljobApplications = undefined;
 				});
 	}
 	jobApplications();
@@ -86,6 +98,15 @@ myApp.controller("c_jobController", function($location, $scope, $rootScope, $htt
 				{
 					alert('Already Applied for this job')
 					$location.path("/showjobs");
+				});
+	}
+	
+	$scope.deletejobapplication = function(jobappid)
+	{
+		$http.delete('http://localhost:8086/collaborationRestService/application/delete/'+jobappid)
+		.then(function(response)
+				{
+					$route.reload();
 				});
 	}
 	
